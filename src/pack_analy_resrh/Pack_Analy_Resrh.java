@@ -1,5 +1,6 @@
 package pack_analy_resrh;
 
+import comd.LCommand;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,12 +17,12 @@ public class Pack_Analy_Resrh {
     public static void main(String[] args) {
         
         String tmp;
-        Process p;
+        LCommand lc;
         BufferedReader br;
         
         try{
-            p = Runtime.getRuntime().exec("ls -l");
-            br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            lc = new LCommand();
+            br = lc.runCommand("lshw");
             
             while ((tmp = br.readLine())!= null) {                
                 System.out.println(tmp);
